@@ -125,9 +125,7 @@ class Tag … {
       throw Error("Tag name must be a string!");
       // on "lève" une erreur => ça arrête tout !
     }
-
     this.name = obj.name;
-
   }
 
 };
