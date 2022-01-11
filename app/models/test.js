@@ -11,7 +11,8 @@ const facile = new Level({
 const quizSurLaFamilleK = new Quiz({
     id: 1,
     title: '10 questions sur les karashian',
-    description: 'Le quizz pour briller en soirée'
+    description: 'Le quizz pour briller en soirée',
+    user_id: "1"
 });
 
 console.log(facile);
