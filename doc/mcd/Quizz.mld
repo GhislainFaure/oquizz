@@ -1,0 +1,19 @@
+Comme ca :
+
+niveau (code_niveau, nom)
+question (code_question, description, anecdote, wiki, #code_niveau, #code_quizz, code_reponse)
+réponse (code_reponse, description, #code_question)
+utilisateur (code_utilisateur, prénom, nom email, mot de passe)
+quizz (code_quizz, titre, description, #code_utilisateur)
+catégorie (code_categorie, nom)
+APPARTIENT(code_quizz, code_categorie)
+
+Ou comme ca :
+
+niveau (id, nom)
+question (id, description, anecdote, wiki, #niveau(id), #quizz(id), #reponse(id))
+réponse (id, description, #question(id))
+utilisateur (id, prénom, nom email, mot de passe)
+quizz (id, titre, description, #utilisateur(id))
+catégorie (id, nom)
+APPARTIENT(#quizz(id), #categorie(id))

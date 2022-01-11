@@ -1,0 +1,18 @@
+# Nos uses case
+| en tant que | j'ai besoin de                                                            | afin de                                                  | commentaire                                              | sprint |
+|-------------|---------------------------------------------------------------------------|----------------------------------------------------------|----------------------------------------------------------|--------|
+| visiteur    | une page d'accueil                                                        | prévisualiser le contenu du site                         |                                                          | 1      |
+| visiteur    | visualiser les titres de quizz sur la page d'accueil                      | choisir le quizz que je souhaite effectuer               |                                                          | 1      |
+| visiteur    | visualiser les sous titres et les auteurs des quizz sur la page d'accueil |                                                          |                                                          | 1      |
+| visiteur    | pouvoir accéder aux questions d'un quizz                                  | voir son contenu                                         | je ne peux pas répondre tant que je ne suis pas connecté | 1      |
+| visiteur    | pouvoir visualiser la difficulté de chaque question                       |                                                          |                                                          | 1      |
+| visiteur    | pouvoir visualiser le contexte de chaque question                         |                                                          |                                                          | 1      |
+| visiteur    | pouvoir visualiser tous les sujets ( = catégories)                        | afin de pouvoir accéder aux quizzs d'un sujet spécifique |                                                          | 1      |
+| visiteur    | pouvoir accéder a une page d'inscription                                  | pouvoir m'inscrire                                       |                                                          | 1      |
+| visiteur    | pouvoir accéder a une page de connexion                                   | pouvoir me connecter                                     |                                                          | 1      |
+| visiteur    | pouvoir m'inscrire                                                        | avoir un compte et répondre aux quizz                    |                                                          | 2      |
+| visiteur    | pouvoir me connecter a mon compte                                         | pouvoir répondre aux quizz                               |                                                          | 2      |
+| membre      | pouvoir me déconnecter                                                    |                                                          |                                                          | 2      |
+| membre      | pouvoir répondre aux questions d'un quizz                                 | vérifier mes connaissances                               |                                                          | 2      |
+| membre      | pouvoir visualiser mon score                                              |                                                          |                                                          | 2      |
+| membre      | pouvoir visualiser les bonnes et mauvaises réponses que j'ai donné        | cibler mes révisions                                     |                                                          | 2      |
