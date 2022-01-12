@@ -17,11 +17,8 @@ async function testUser() {
 
     const dicaprio = await User.findById(6);
 
-    dicaprio.password = 'dontlookup';
 
-    // await dicaprio.update();
-
-    console.log('le mot de passe a été changé');
+    await dicaprio.delete();
 
     // const newUser = new User({
     //     email: 'bggsurleretour@wanadoo.fr',
@@ -66,5 +63,11 @@ async function testLevel() {
     console.log('cool jai inséré le niveau. maintenant son id est : ', newLevel.id);
 }
 
+async function test() {
+    const niveauBebe = await Level.findById(17);
 
-testUser();
+    console.log('niveauBebe : ', niveauBebe);
+    await niveauBebe.delete();
+}
+
+test();

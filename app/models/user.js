@@ -7,6 +7,9 @@ class User extends CoreModel {
     firstname;
     lastname;
 
+    // on surcharge la proprieté statique tableName définie dans le parent
+    static tableName = "user";
+
     constructor(obj) {
         // on appelle le constructeur parent
         super(obj);
@@ -60,23 +63,6 @@ class User extends CoreModel {
         }
         
         return new User(result.rows[0]);
-    }
-
-    // je veux supprimer en base de données...
-    // l'instance courante.
-    async delete() {
-        const query = {
-            text: 'DELETE FROM "user" where id=$1',
-            values: [this.id]
-        }
-
-        const result = await client.query(query);
-
-        if (result.rowCount === 0) {
-            throw Error('Did not delete any rows');
-        }
-        // pas d'erreur ? ok on a supprimé qqch, ok on renvoie true.
-        return true;
     }
 
     async update() {

@@ -1,10 +1,15 @@
-const e = require("express");
+const client = require('../client');
 
 class CoreModel {
     // id est une propriété privée
     // on ne veut pas que les enfants
     // puissent le modifier
     #id;
+
+    // afin de pouvoir accéder a tableName partout
+    // et le redefinir dans les enfants
+    // je le déclare dans le parent
+    static tableName = null;
 
     constructor(obj) {
         // dans le constructeur, on sauvegarde
@@ -28,6 +33,20 @@ class CoreModel {
         } else {
             // si y'a déja un id, interdiction d'y toucher
             throw Error('Do not try to change Level id');
+        }
+    }
+
+    async delete() {
+        console.log('ca va je viens dans le delete');
+        const query = {
+            text: `DELETE FROM "${this.constructor.tableName}" where id=$1`,
+            values: [this.id]
+        }
+
+        const result = await client.query(query);
+
+        if (result.rowCount === 0) {
+            throw Error('Did not delete any rows');
         }
     }
 }
