@@ -2,8 +2,38 @@
 require('dotenv').config();
 
 const Level = require('./app/models/level');
+const User = require('./app/models/user');
 
- async function test() {
+async function testUser() {
+    const users = await User.findAll();
+
+    console.log('users : ', users);
+
+    // const chalamet = await User.findById(4);
+
+    // console.log('chalamet : ', chalamet);
+
+    // await chalamet.delete();
+
+    const dicaprio = await User.findById(6);
+
+    dicaprio.password = 'dontlookup';
+
+    // await dicaprio.update();
+
+    console.log('le mot de passe a été changé');
+
+    // const newUser = new User({
+    //     email: 'bggsurleretour@wanadoo.fr',
+    //     password: 'titanic',
+    //     firstname: 'Leonardo',
+    //     lastname: 'Di Caprio'
+    // });
+
+    // await newUser.insert();
+}
+
+async function testLevel() {
     // trouver tous les niveaux...
     const levels = await Level.findAll();
 
@@ -36,4 +66,5 @@ const Level = require('./app/models/level');
     console.log('cool jai inséré le niveau. maintenant son id est : ', newLevel.id);
 }
 
-test();
+
+testUser();
