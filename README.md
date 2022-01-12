@@ -1,5 +1,27 @@
 # OQuiz
 
+## Challenge E4 !
+
+Finir de coder CoreModel !
+Ein ? On a pas fini ?
+
+Si en vrai on a fini. Mais je voudrais deux petites choses en plus :
+
+- ajouter une méthode `save`
+  - si notre instance (sur laquelle on appelle save) n'est pas encore sauvegardée en base, elle va appeler `insert`
+  - sinon, elle va appeller `update`
+- rajouter un `findBy({})`
+  - il prend en parametre un objet avec différentes valeurs de colonnes
+  - il nous permet de trouver n'importe quelle row selon différents critères
+  - par exemple, je voudrais pouvoir écrire : `User.findBy({ firstname: 'Kevin', lastname: 'Dupont' })`
+
+### euh... ca a l'air dur le findBy
+
+- Je commence par écrire la requete SQL. Ce sera un truc du genre WHERE XXX AND XXX
+- Quand je suis sur de moi, j'essaye de fabriquer la requête
+- Je peux m'inspirer de ce qui est fait dans insert / update.
+- Indice : findBy est statique... donc... on ne manipule pas d'instance.. donc pas boucle for (const prop in this)...
+
 ## Challenge E3
 
 Les méthodes Active Record du modèle `Level` ont été codées.
