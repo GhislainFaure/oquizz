@@ -64,10 +64,13 @@ async function testLevel() {
 }
 
 async function test() {
-    const niveauBebe = await Level.findById(17);
+    const dicaprio = await User.findById(5);
 
-    console.log('niveauBebe : ', niveauBebe);
-    await niveauBebe.delete();
+    dicaprio.password = 'rose';
+
+    await dicaprio.update();
 }
 
 test();
+
+
