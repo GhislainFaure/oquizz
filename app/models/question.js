@@ -5,8 +5,9 @@ class Question extends Sequelize.Model {}
 
 Question.init(
     {
-        description: Sequelize.STRING,
-        title: Sequelize.STRING,
+        question: Sequelize.STRING,
+        anecdote: Sequelize.STRING,
+        wiki: Sequelize.STRING,
     },
     {
         sequelize: sequelizeConnection,

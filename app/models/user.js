@@ -1,14 +1,14 @@
-const { STRING, Model } = require('sequelize');
+const Sequelize = require('sequelize');
 const sequelizeConnection = require('../sequelize');
 
-class User extends Model {}
+class User extends Sequelize.Model {}
 
 User.init(
     {
-        email: STRING,
-        password: STRING,
-        firstname: STRING,
-        lastname: STRING
+        email: Sequelize.STRING,
+        password: Sequelize.STRING,
+        firstname: Sequelize.STRING,
+        lastname: Sequelize.STRING
     },
     {
         // l'instance sequelize, pour savoir a quelle base de donnée parler

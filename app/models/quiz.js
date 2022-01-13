@@ -5,9 +5,8 @@ class Quiz extends Sequelize.Model {}
 
 Quiz.init(
     {
+        title: Sequelize.STRING,
         description: Sequelize.STRING,
-        anecdote: Sequelize.STRING,
-        wiki: Sequelize.STRING,
     },
     {
         sequelize: sequelizeConnection,
@@ -16,3 +15,4 @@ Quiz.init(
 );
 
 module.exports = Quiz;
+ 
