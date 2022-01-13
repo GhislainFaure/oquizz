@@ -1,19 +1,22 @@
-const CoreModel = require("./coreModel");
+const Sequelize = require('sequelize');
+const sequelizeConnection = require('../sequelize');
 
-class Level extends CoreModel {
-    name;
+// comme avant, sauf que je n 'étends plus CoreModel mais Sequelize.Model
+class Level extends Sequelize.Model {}
 
-    static tableName = "level";
+// un tableau d'attributs, avec leurs types
+const attributes = {
+    name: Sequelize.STRING,
+};
 
-    constructor(obj) {
-        // on appelle le constructeur parent
-        super(obj);
+// des options. Deux sont obligatoires :
+const options = {
+    // l'instance sequelize, pour savoir a quelle base de donnée parler
+    sequelize: sequelizeConnection,
+    // le nom de la table
+    tableName: "level"
+};
 
-        if (typeof obj.name !== 'string') {
-            throw new Error('Level.name must be a string !');
-        }
-        this.name = obj.name;
-    }
-}
+Level.init(attributes, options);
 
 module.exports = Level;
