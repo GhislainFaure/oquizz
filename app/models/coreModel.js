@@ -84,6 +84,73 @@ class CoreModel {
         return new this(result.rows[0]);
     }
 
+    // objectif ? pouvoir trouver un enregistrement selon
+    // différents parametres.
+    // par exemple, j'aimerais pouvoir faire :
+    // User.findBy({ firstname: 'Ryan', lastname: 'Gosling' });
+    static async findBy(params) {  
+        // nos conditions du genre '"firstname" = $1'
+        const conditions = [];
+        // nos valeurs dans un tableau
+        const values = [];
+        // comme dans le insert, pour savoir a quel index je suis
+        let indexPlaceholder = 1;
+
+        // je parcours les clés de l'objet
+        for (let prop in params) {
+            // je fabrique une condition du genre '"firstname" = $1'
+            conditions.push(`"${prop}" = $${indexPlaceholder}`);
+            // je stocke aussi la valeur
+            values.push(params[prop]);
+            // j'augmente le placeholder pour le prochain tour de boucle
+            // c'est a dire ce qui me permet de construire les $1,$2,$3
+            indexPlaceholder++;
+        }
+
+        const query = {
+            text: `
+                SELECT * FROM "${this.tableName}"
+                WHERE
+                (${conditions.join(' AND ')});
+            `,
+            values: values
+        };
+
+        // nos resultats
+        const results = await client.query(query);
+
+        // si aucun résultat trouvé
+        if (results.rows.length === 0) {
+            // je leve une erreur
+            throw Error('No result found for your search');
+        }
+
+        // je ne veux garder que la premiere ligne de mes résultats
+        const result = results.rows[0];
+
+        // je veux en faire une instance
+        const instance = new this(result);
+
+        // je renvoie l'instance
+        return instance;
+    }
+
+    async save() {
+        // de quoi il s'agit ?
+        // si mon entité est déja enregistrée en base ? 
+        // alors, je vais appeler update()
+        // sinon, je vais appeler insert()
+
+        // comment savoir si c'est déja enregistré en base 
+        // très simple : je regarde si il y a un id
+
+        if (this.id) {
+            await this.update();
+        } else {
+            await this.insert();
+        }
+    }
+
     async update() {
         // voici ce qu'on doit fabriquer : 
         // UPDATE "user"

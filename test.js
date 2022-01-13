@@ -64,11 +64,13 @@ async function testLevel() {
 }
 
 async function test() {
-    const dicaprio = await User.findById(5);
+    const leMeilleurProfDeOClock = await User.findBy({ firstname: 'Philippe', lastname: 'Candille' });
 
-    dicaprio.password = 'rose';
+    console.log('on a trouve philippe : ',  leMeilleurProfDeOClock);
 
-    await dicaprio.update();
+    const leNiveauFacile = await Level.findBy({ name: 'Débutant' });
+
+    console.log('le niveau facile : ', leNiveauFacile);
 }
 
 test();
