@@ -1,5 +1,36 @@
 # O'quiz
 
+## Jour 7
+
+Avant toute chose, il nous faudra un admin. Modifier un utilisateur de la base,
+pour qu'il soit administrateur, comme ceci : 
+`UPDATE "user" SET "role" = 'admin' WHERE id = 1;`
+
+Note : pour rappel, le mot de passe de Philippe et Chuck est : **quizoclock**
+
+### Déconnexion
+
+Ce serait bien qu'un user puisse se déconnecter. Créer la route et le controleur pour gerer le bouton "se déconnecter" (/disconnect)
+
+### Les petites bricoles...
+
+Empecher l'accès aux routes /login et /signup si on est déja connecté.
+
+### Page administrateur
+
+Créer une page Admin qui répondre à l'url "/admin" et qui affiche l'ensemble des quizs (sous forme agréable pour une administration claire).
+
+**Attention ! Bien entendu il faudrait empecher tout utilisateur non-admin d'accéder a cette page (donc en regardant le fameux req.session.user)... voir même pour les plus téméraires faire un adminMiddleware :)**
+
+Ajouter une bouton supprimer à côté des quizs pour les supprimer (un à un).
+La suppression doit répondre à la route "/admin/quiz/delete/:id".
+Ici aussi, on va protéger notre route.
+
+Spoiler
+MEGA BONUS (peut être long)
+
+Créer une page pour ajouter un quiz à notre BDD. Si le quiz vous semble un trop, pourquoi pas une page pour créer un level ?
+
 ## Jour 4 : Atelier, Sprint 1
 
 Fini les tests ! Maintenant qu'on a des super modèles, on va brancher tout ça dans notre archi Express !
