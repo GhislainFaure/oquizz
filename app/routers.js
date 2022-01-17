@@ -14,4 +14,7 @@ router.get('/quiz/:id', quizController.viewOneQuiz);
 // la page pour voir tous les tags
 router.get('/tags', tagController.viewTags);
 
+// la page pour voir les quiz d'un tag
+router.get('/tag/:id', tagController.viewAllQuizOfTag);
+
 module.exports = router;

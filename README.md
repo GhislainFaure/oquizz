@@ -31,7 +31,7 @@ Nouveau controller (`tagController`)
 
 ### pouvoir visualiser tous les quiz pour un sujet donné
 
-Astuce : utiliser le model Tag, et se servir des "includes" de Sequelize pour en déduire les quiz concernées !
+Astuce : utiliser le model Tag, et se servir des "includes" de Sequelize pour en déduire les quiz concernés !
 
 ### :v: Bonus facile : Ajouter tous les liens qui pourraient manqués
 
