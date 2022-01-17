@@ -32,6 +32,7 @@ async function test() {
     console.log('le niveau de la premiere question :', premierQuiz.questions[0].level.name);
     console.log('la bonne réponse a la premier question', premierQuiz.questions[0].good_answer.description);
     console.log('le premier tag: ', premierQuiz.tags[0].name);
+    console.log('tous les tags : ', premierQuiz.tags.map(t => t.name))
 }
 
 test();

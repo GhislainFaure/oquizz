@@ -1,7 +1,12 @@
-const mainController = {
+const { Quiz } = require('../models');
 
-    homePage(req, res) {
-        res.render('home');
+const mainController = {
+    async homePage(req, res) {
+        const quizList = await Quiz.findAll({
+            include: ['author']
+        });
+
+        res.render('home', { quizList });
     }
 }
 
