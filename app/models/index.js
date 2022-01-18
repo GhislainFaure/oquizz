@@ -14,13 +14,13 @@ const User = require('./user');
 // une question a plusieurs answers
 Question.hasMany(Answer, {
     foreignKey: 'question_id',
-    as: 'answers'
+    as: 'answers',
 });
 
 // une answer est liée a une seule question
 Answer.belongsTo(Question, {
     foreignKey: 'question_id',
-    as: 'question'
+    as: 'question',
 });
 
 // une question est validée par une réponse...
@@ -29,7 +29,7 @@ Answer.belongsTo(Question, {
 // c'est a dire ici dans QUESTION
 Question.belongsTo(Answer, {
     foreignKey: 'answer_id',
-    as: 'good_answer'
+    as: 'good_answer',
 });
 
 // note : on aurait aussi pu l'écrire a l'envers a la place :
@@ -61,7 +61,7 @@ Question.belongsTo(Quiz, {
 // un quizz possède plusieurs questions
 Quiz.hasMany(Question, {
     foreignKey: 'quiz_id',
-    as: "questions"
+    as: "questions",
 });
 
 // Un QUIZZ appartient a Un User

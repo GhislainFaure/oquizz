@@ -24,6 +24,9 @@
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-white" href="/">Accueil</a>
             <a class="p-2 text-white" href="/tags">Sujets</a>
+            <% if (locals.user && locals.user.role === 'admin') { %>
+                <a class="p-2 text-white" href="/admin">Administration</a>
+            <% } %>
             <% if (locals.user) { %>
                 <span>Bienvenue <%= user.firstname %></span>
                 <a class="p-2 text-white" href="/disconnect">Se déconnecter</a>

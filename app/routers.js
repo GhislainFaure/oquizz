@@ -1,8 +1,11 @@
 const express = require('express');
+const adminController = require('./controllers/adminController');
 const mainController = require('./controllers/mainController');
 const quizController = require('./controllers/quizController');
 const tagController = require('./controllers/tagController');
 const userController = require('./controllers/userController');
+
+const adminMiddleware = require('./middleware/adminMiddleware');
 
 const router = express.Router();
 
@@ -35,5 +38,16 @@ router.get('/disconnect', userController.disconnect);
 
 // une route pour voir son profil
 router.get('/profile', userController.viewProfile);
+
+// une route pour la page d'administration
+router.get('/admin', adminMiddleware, adminController.viewAdminPage);
+
+// supprimer un utilisateur
+router.get('/admin/user/delete/:id', adminMiddleware, adminController.deleteUserById);
+
+// rendre un utilisateur admin
+router.get('/admin/user/make_admin/:id', adminMiddleware, adminController.makeUserAdmin);
+
+
 
 module.exports = router;
