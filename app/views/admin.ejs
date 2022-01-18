@@ -1,37 +1,13 @@
 <%- include('partials/header') %>
 
-<ul class="list-group">
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h2 class="h1 display-4">Bienvenue sur l'administration de Oquiz</h2>
+    <p class="lead">
+        Depuis cette page, retrouvez vos options d'administration
+    </p>
 
-    <% for (user of allUser) { %>
-        <li class="list-group-item" style="display: flex;justify-content: space-between;align-items: center;">
-            <div>
-                <%= user.firstname %>
-                <%= user.lastname %>
-                <%= user.email %>
-                <% if (user.role === 'admin') { %>
-                    <span class="badge badge-warning">Administrateur</span>
-                <% } %>
-            </div>
-            <div>
-                <% if (user.role !== 'admin') { %>
-                    <a
-                        href="/admin/user/make_admin/<%= user.id %>"
-                        class="btn btn-warning"
-                        role="button"
-                    >
-                        Rendre administrateur
-                    </a>
-                <% } %>
-                <a
-                    href="/admin/user/delete/<%= user.id %>"
-                    class="btn btn-danger"
-                    role="button"
-                >
-                    Supprimer l'utilisateur
-                </a>
-            </div>
-        </li>
-    <% } %>
-  </ul>
+    <a class="btn btn-primary btn-large" href="/admin/user" role="button">Gérer les utilisateurs</a>
 
+    <a class="btn btn-primary btn-large" href="/admin/levels" role="button">Gérer les niveaux</a>
+</div>
 <%- include('partials/footer') %>

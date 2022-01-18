@@ -1,5 +1,51 @@
 # O'quiz
 
+## Jour 8
+
+### On commence gentiment...
+
+On a fait un middleware pour n'afficher que certaines pages si on est connecté en tant qu'admin. Dans le même esprit, repasser sur userController sur les méthodes signupPage et loginPage. Dedans, il y a un petit code qui vérifie que l'on est PAS connecté. Déporter ce code vers un middleware du genre `unloggedMiddleware` afin de factoriser.
+
+#### Tant qu'on y est...
+
+Dans le fichier index.js a la racine de notre application, on a écrit un middleware en dur, pour mettre notre session dans res.locals :
+
+```javascript
+app.use((req, res, next) => {
+   // je place session.user dans mon objet locals
+   res.locals.user = req.session.user;
+   next();
+})
+```
+
+Déporter ce middleware vers un fichier a part, histoire que ce soit un peu plus propre.
+
+### Administrer les levels
+
+En s'inspirant fortement du code fait pour l'administration des users, rajouter toute la tambouille nécessaire pour pouvoir voir et lister les niveaux (Facile, Intermediaire, Expert) ainsi que les supprimer.
+
+**Si vous ne pouvez pas supprimer de level, c'est normal ! C'est car ils sont reliés a des questions... Donc pour vos tests, créer des levels a la main depuis la console SQL, comme on a fait pour les users**
+
+Comme ceci : `INSERT INTO "level"("name") VALUES ('plop');`
+
+### Un peu plus loin
+
+Faire un formulaire pour pouvoir créer un level, sans devoir passer par la ligne de commande SQL.
+
+Quelques astuces :
+- le formulaire est fourni dans la vue create_level
+- si on ne sait pas créer quelque chose avec Sequelize ====> la doc
+
+Et bien sur... n'oubliez pas de protéger tout ca avec votre adminMiddleware.
+Ah et n'oubliez pas que pour rendre un user admin, la commande SQL est plus bas (challenge de hier).
+Ah et enfin, il faudrait un lien vers le formulaire de création de level, depuis le listing de levels (fait a l'étape d'avant)
+
+#### Le giga bonus
+
+Le bonus est **exploratoire**. Si vous n'avez pas le temps / envie de le faire, écrivez au moins un plan d'action de comment vous vous y seriez pris...
+
+**Pouvoir jouer a un quiz, si on est connecté, et voir son score a la fin**
+
 ## Jour 7
 
 Avant toute chose, il nous faudra un admin. Modifier un utilisateur de la base,

@@ -39,8 +39,11 @@ router.get('/disconnect', userController.disconnect);
 // une route pour voir son profil
 router.get('/profile', userController.viewProfile);
 
+// une route pour toutes les fonctionnalités de l'admin
+router.get('/admin', adminMiddleware, adminController.viewAdminHome);
+
 // une route pour la page d'administration
-router.get('/admin', adminMiddleware, adminController.viewAdminPage);
+router.get('/admin/user', adminMiddleware, adminController.viewAdminUserPage);
 
 // supprimer un utilisateur
 router.get('/admin/user/delete/:id', adminMiddleware, adminController.deleteUserById);
@@ -48,6 +51,11 @@ router.get('/admin/user/delete/:id', adminMiddleware, adminController.deleteUser
 // rendre un utilisateur admin
 router.get('/admin/user/make_admin/:id', adminMiddleware, adminController.makeUserAdmin);
 
+// la page pour créer un level (en chantier, je fais juste la vue);
+router.get('/admin/level/create', adminController.viewCreateLevel);
+
+// la route qui réagit au post d'une requete
+router.post('/admin/level/create', adminController.createLevelAction);
 
 
 module.exports = router;

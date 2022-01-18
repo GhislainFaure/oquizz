@@ -1,7 +1,10 @@
 const { User } = require('../models');
 
 const adminController = {
-    async viewAdminPage(req, res) {  
+    viewAdminHome(req, res) {
+        res.render('admin');
+    },
+    async viewAdminUserPage(req, res) {  
         // pour la page d'administration, je voudrais afficher tous les User
         // donc... je dois les récuperer grace a Sequelize :)
 
@@ -9,7 +12,7 @@ const adminController = {
             order: ['role']
         });
 
-        res.render('admin', { allUser });
+        res.render('admin_user', { allUser });
     },
 
     async deleteUserById(req, res) {
@@ -47,6 +50,14 @@ const adminController = {
 
         // et enfin, je repars sur la page d'admin
         return res.redirect('/admin');
+    },
+
+    viewCreateLevel(req, res) {
+        res.render('create_level');
+    },
+
+    createLevelAction(req, res) {
+        // TODO : créer un niveau
     }
 }
 
