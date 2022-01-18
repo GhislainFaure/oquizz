@@ -30,6 +30,9 @@ router.get('/login', userController.loginPage);
 // l'action de se connecter
 router.post('/login', userController.loginAction);
 
+// la route pour se déconnecter
+router.get('/disconnect', userController.disconnect);
+
 // une route pour voir son profil
 router.get('/profile', userController.viewProfile);
 

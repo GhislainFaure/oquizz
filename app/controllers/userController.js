@@ -120,6 +120,16 @@ const userController = {
         // quel est l'utilisateur
 
         res.json(req.session.user);
+    },
+
+    disconnect(req, res) {
+        // je veux me déconnecter...
+
+        // je veux donc... supprimer la session
+        req.session.destroy();
+
+        // et on retourne sur la page d'accueil
+        res.redirect('/');
     }
 }
 
