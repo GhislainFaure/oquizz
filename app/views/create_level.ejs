@@ -4,6 +4,12 @@
     <h2 class="h1 display-4">Créer un niveau de difficulté</h2>
 </div>
 
+<% if (locals.error) { %>
+    <div class="alert alert-danger" role="alert">
+        Une erreur est survenue : <%= error %>
+    </div>
+<% } %>
+
 <div class="row">
     <div class="col-6 offset-3">
         <form action="/admin/level/create" method="POST" class="form-signup">
@@ -14,7 +20,9 @@
                 <label for="level">Le nom du niveau</label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Créer le niveau</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Créer le niveau
+            </button>
         </form>
     </div>
 </div>

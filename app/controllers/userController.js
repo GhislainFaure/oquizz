@@ -5,13 +5,6 @@ const { User } = require("../models");
 
 const userController = {
     signupPage(req, res) {
-        // si je suis déja connecté
-        // c'est a dire si j'ai un user dans ma session
-        if (req.session.user) {
-            // je redirige, interdiction d'être ici
-            return res.redirect('/');
-        }
-
         res.render('signup');
     },
 
@@ -77,13 +70,6 @@ const userController = {
     },
 
     loginPage(req, res) {
-        // si je suis déja connecté
-        // c'est a dire si j'ai un user dans ma session
-        if (req.session.user) {
-            // je redirige, interdiction d'être ici
-            return res.redirect('/');
-        }
-
         res.render('login');
     },
 

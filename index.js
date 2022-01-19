@@ -4,6 +4,8 @@ const path = require('path');
 const express = require('express');
 const router = require('./app/routers');
 
+const sessionMiddleware = require('./app/middleware/sessionMiddleware');
+
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -26,11 +28,7 @@ app.use(session({
 }));
 
 // pour que le user soit toujours accessible dans mes vues
-app.use((req, res, next) => {
-   // je place session.user dans mon objet locals
-   res.locals.user = req.session.user;
-   next();
-})
+app.use(sessionMiddleware);
 
 app.use(router);
 

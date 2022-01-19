@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<div style="margin-bottom: 1rem;margin-top: 2rem;">
+    <a
+        href="/admin/level/create"
+        class="btn btn-primary"
+        role="button"
+    >
+        Créer un niveau
+    </a>
+</div>
+<ul class="list-group">
+    <% for (level of allLevels) { %>
+        <li class="list-group-item" style="display: flex;justify-content: space-between;align-items: center;">
+            <div>
+                <%= level.name %>
+            </div>
+            <div>
+                <a
+                    href="/admin/level/delete/<%= level.id %>"
+                    class="btn btn-danger"
+                    role="button"
+                >
+                    Supprimer le niveau
+                </a>
+            </div>
+        </li>
+    <% } %>
+  </ul>
+
+<%- include('partials/footer') %>

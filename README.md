@@ -40,10 +40,6 @@ Et bien sur... n'oubliez pas de protéger tout ca avec votre adminMiddleware.
 Ah et n'oubliez pas que pour rendre un user admin, la commande SQL est plus bas (challenge de hier).
 Ah et enfin, il faudrait un lien vers le formulaire de création de level, depuis le listing de levels (fait a l'étape d'avant)
 
-#### Le giga bonus
-
-Le bonus est **exploratoire**. Si vous n'avez pas le temps / envie de le faire, écrivez au moins un plan d'action de comment vous vous y seriez pris...
-
 **Pouvoir jouer a un quiz, si on est connecté, et voir son score a la fin**
 
 ## Jour 7

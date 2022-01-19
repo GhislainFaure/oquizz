@@ -6,6 +6,7 @@ const tagController = require('./controllers/tagController');
 const userController = require('./controllers/userController');
 
 const adminMiddleware = require('./middleware/adminMiddleware');
+const visitorMiddleware = require('./middleware/visitorMiddleware');
 
 const router = express.Router();
 
@@ -22,13 +23,13 @@ router.get('/tags', tagController.viewTags);
 router.get('/tag/:id', tagController.viewAllQuizOfTag);
 
 // la page pour s'inscrire
-router.get('/signup', userController.signupPage);
+router.get('/signup', visitorMiddleware, userController.signupPage);
 
 // l'action de s'inscrire
 router.post('/signup', userController.signupAction);
 
 // la page pour se connecter
-router.get('/login', userController.loginPage);
+router.get('/login', visitorMiddleware, userController.loginPage);
 
 // l'action de se connecter
 router.post('/login', userController.loginAction);
@@ -52,10 +53,16 @@ router.get('/admin/user/delete/:id', adminMiddleware, adminController.deleteUser
 router.get('/admin/user/make_admin/:id', adminMiddleware, adminController.makeUserAdmin);
 
 // la page pour créer un level (en chantier, je fais juste la vue);
-router.get('/admin/level/create', adminController.viewCreateLevel);
+router.get('/admin/level/create', adminMiddleware, adminController.viewCreateLevel);
 
 // la route qui réagit au post d'une requete
-router.post('/admin/level/create', adminController.createLevelAction);
+router.post('/admin/level/create', adminMiddleware, adminController.createLevelAction);
+
+// voir tous les levels
+router.get('/admin/level', adminMiddleware, adminController.viewAdminLevelPage);
+
+// supprimer un level
+router.get('/admin/level/delete/:id', adminMiddleware, adminController.deleteLevelById);
 
 
 module.exports = router;
